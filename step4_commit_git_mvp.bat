@@ -5,49 +5,63 @@ echo ================================
 echo Step 4: MVP Commit and Push to GitHub
 echo ================================
 
-rem Check if Git is installed
+rem Step 1: Check if Git is installed
 git --version >nul 2>&1
 IF %ERRORLEVEL% NEQ 0 (
-    echo Git is not installed or not working properly.
+    echo Git is not installed or not in PATH.
     pause
     exit /b
 )
 
-rem Check if inside a Git repository
+rem Step 2: Confirm we are inside a Git repo
 IF NOT EXIST ".git" (
     echo This folder is not a Git repository.
-    echo Please run git init and link to GitHub repo first.
+    echo Run git_init first or use git init manually.
     pause
     exit /b
 )
 
-rem Confirm GitHub remote
+rem Step 3: Ensure correct Git remote is set
 git remote get-url origin >nul 2>&1
 IF %ERRORLEVEL% NEQ 0 (
-    echo Git remote 'origin' not found.
-    echo Adding origin as 'https://github.com/humeraaa/chat-application.git'
+    echo Remote 'origin' not found. Adding now...
     git remote add origin https://github.com/humeraaa/chat-application.git
+    echo Remote 'origin' added successfully.
 ) ELSE (
     echo Git remote 'origin' is already set.
 )
 
-rem Set Git user identity (optional)
-git config --global user.name "humeraaa"
-git config --global user.email "humera@uok.edu.pk"
+rem Step 4: Check for changes
+git status --porcelain >nul
+IF %ERRORLEVEL% NEQ 0 (
+    echo Failed to check git status.
+    pause
+    exit /b
+)
 
-rem Generate commit message with timestamp
-for /f %%A in ('powershell -Command "Get-Date -Format yyyy-MM-dd_HH-mm-ss"') do set datetime=%%A
-set "msg=MVP Commit - %datetime%"
+git status --porcelain | findstr . >nul
+IF %ERRORLEVEL% NEQ 0 (
+    echo Nothing to commit. Working tree clean.
+    pause
+    exit /b
+)
 
-rem Add all changes
+rem Step 5: Set Git identity (optional)
+git config user.name "humeraaa"
+git config user.email "humera@uok.edu.pk"
+
+rem Step 6: Commit and push
+echo Adding all files...
 git add .
 
-rem Commit
+for /f %%A in ('powershell -Command "Get-Date -Format yyyy-MM-dd_HH-mm-ss"') do set datetime=%%A
+set "msg=MVP Commit - %datetime%"
+echo Committing with message: %msg%
 git commit -m "%msg%"
 
-rem Push to GitHub
-git push origin main
+echo Pushing to GitHub...
+git push -u origin main
 
 echo.
-echo Step 4 complete: Commit and push successful (if no errors above).
+echo Step 4 complete: Commit and push complete.
 pause
