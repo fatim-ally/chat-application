@@ -55,29 +55,7 @@ This project includes helper scripts to reduce setup time and ensure consistency
 💡 I run step 0 and step 00 outside folder "chat_application". All other .bat files have been run from inside chat-application.
 
 ## 📁 Folder Structure step_0_create_structure.bat
-bash
-chat_application/
-│
-├── venv/                   # Virtual environment
-├── main.py                 # Entry point of the application
-├── README.md               # Project documentation
-├── requirements.txt        # Dependencies
-│
-├── src/
-│   ├── models/             # Bot classes (e.g. EinsteinBot, RonaldoBot)
-│   ├── services/           # Chat service logic
-│   ├── utils/              # Helper utilities (if any)
-│   ├── exceptions/         # Custom error definitions (optional)
-│   └── core/               # CLI, initializers, config etc.
-│
-├── tests/                  # Unit or functional tests
-│
-├── step_0_create_structure.bat
-├── step_00_init_git.bat
-├── step_1_check_git.bat
-├── step_2_check_git_repo.bat
-├── step_3_add_remote.bat
-├── step_4_mvp_commit.bat
+<pre> ### 📁 Project Folder Structure ```text chat_application/ │ ├── venv/ # Virtual environment ├── main.py # Entry point of the application ├── README.md # Project documentation ├── requirements.txt # Dependencies │ ├── src/ │ ├── models/ # Bot classes (e.g. EinsteinBot, RonaldoBot) │ ├── services/ # Chat service logic │ ├── utils/ # Helper utilities │ ├── exceptions/ # Custom error definitions │ └── core/ # CLI, initializers, config etc. │ ├── tests/ # Unit or functional tests │ ├── step_0_create_structure.bat ├── step_00_init_git.bat ├── step_1_check_git.bat ├── step_2_check_git_repo.bat ├── step_3_add_remote.bat ├── step_4_mvp_commit.bat ``` </pre>
 
 
 ## 🐍 Working with Virtual Environment
