@@ -1,0 +1,9 @@
+Step	File	Purpose	Write First?
+✅ 1	bot_interface.py	Define the interface (abstract class) for all bots	YES (foundational)
+✅ 2	einstein_bot.py	First bot that implements the interface	Yes
+✅ 3	ronaldo_bot.py	Second bot (shows polymorphism)	Yes
+✅ 4	hamilton_bot.py	Third bot (optional: for student exercise)	Optional
+✅ 5	cli.py	Handles command-line input	Yes
+✅ 6	initializer.py	Returns the bot object based on user input	Yes
+✅ 7	chat_service.py	Runs the actual chat loop	Yes
+✅ 8	main.py	Final, clean entry-point using everything above	LAST
