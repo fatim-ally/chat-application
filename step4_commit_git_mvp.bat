@@ -42,16 +42,22 @@ IF %ERRORLEVEL% EQU 0 (
 git config --global user.name "humeraaa"
 git config --global user.email "humera@uok.edu.pk"
 
-:: Step 6: Generate timestamped commit message
+:: Step 6: Commit with timestamp
 for /f %%A in ('powershell -Command "Get-Date -Format yyyy-MM-dd_HH-mm-ss"') do set datetime=%%A
 set "msg=MVP Commit - %datetime%"
-
-:: Step 7: Add, commit, and push
 echo Committing with message: %msg%
 git add .
 git commit -m "%msg%"
+
+:: Step 7: Push and fix if rejected
+echo Pushing to GitHub...
 git push origin main
+IF %ERRORLEVEL% NEQ 0 (
+    echo Push failed. Attempting to pull remote changes and retry...
+    git pull origin main --allow-unrelated-histories
+    git push origin main
+)
 
 echo.
-echo Step 4 complete: Commit and push successful.
+echo Step 4 complete: Commit and push process finished.
 pause
