@@ -55,6 +55,7 @@ This project includes helper scripts to reduce setup time and ensure consistency
 💡 I run step 0 and step 00 outside folder "chat_application". All other .bat files have been run from inside chat-application.
 
 ## 📁 Folder Structure step_0_create_structure.bat
+bash
 chat_application/
 │
 ├── venv/                   # Virtual environment
