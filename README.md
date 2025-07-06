@@ -43,14 +43,14 @@ Install the following tools before proceeding:
 ##  How to best use Given .bat files for git automatiob (Optional)
 This project includes helper scripts to reduce setup time and ensure consistency.
 
-▶️ Run these .bat files in order:
-Step	    File	                            Purpose	                                            Need to Edit?
-0	    step_0_create_structure.bat   	Creates project folders, activates virtual environment	        ❌ No
-00	    step_00_init_git.bat	        Initializes Git and identity, commits initial version	        ✅ Yes (Set your GitHub name & email)
-1	    step_1_check_git.bat	        Verifies Git installation	                                    ❌ No
-2	    step_2_check_git_repo.bat	    Checks if .git folder exists	                                ❌ No
-3	    step_3_add_remote.bat	        Adds remote GitHub repository link	                            ✅ Yes (Set your GitHub repo URL)
-4	    step_4_mvp_commit.bat	        Commits & pushes code to GitHub	                                ❌ No (unless repo URL changed)
+| Step | File Name                     | Purpose                                                | Need to Edit?                     |
+| ---- | ----------------------------- | ------------------------------------------------------ | --------------------------------- |
+| 0    | `step_0_create_structure.bat` | Creates project folders, activates virtual environment | ❌ No                              |
+| 00   | `step_00_init_git.bat`        | Initializes Git and identity, commits initial version  | ✅ Yes (Set GitHub name & email)   |
+| 1    | `step_1_check_git.bat`        | Verifies Git installation                              | ❌ No                              |
+| 2    | `step_2_check_git_repo.bat`   | Checks if `.git` folder exists                         | ❌ No                              |
+| 3    | `step_3_add_remote.bat`       | Adds remote GitHub repository link                     | ✅ Yes (Update with your repo URL) |
+| 4    | `step_4_mvp_commit.bat`       | Commits and pushes code to GitHub                      | ❌ No (unless repo URL changed)    |
 
 💡 I run step 0 and step 00 outside folder "chat_application". All other .bat files have been run from inside chat-application.
 
