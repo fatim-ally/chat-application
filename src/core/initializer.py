@@ -3,6 +3,7 @@
 from src.models.bots.einstein_bot import EinsteinBot  # ⑥
 from src.models.bots.ronaldo_bot import RonaldoBot
 from src.models.bots.hamilton_bot import HamiltonBot
+from src.models.bots.movie_bot import MovieBot
 
 def get_bot(bot_name):
     if bot_name == "einstein":
@@ -11,5 +12,7 @@ def get_bot(bot_name):
         return RonaldoBot("Ronaldo")
     elif bot_name == "hamilton":
         return HamiltonBot("Hamilton")
+    elif bot_name == "movie":
+        return MovieBot("Movie")
     else:
         raise ValueError("Unsupported bot name")
